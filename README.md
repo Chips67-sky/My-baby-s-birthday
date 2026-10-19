@@ -194,3 +194,9 @@ function confetti(){
 </script>
 </body>
 </html> 
+<img src="Snapchat-1004003003.jpg"
+     alt="My favourite picture of Bernice">
+     <img src="Snapchat-305400593_074928.jpg"
+     alt="My most silliest picture of Bernice">
+     <img src="Snapchat-694527159.jpg"
+     alt="the one I love the most">
