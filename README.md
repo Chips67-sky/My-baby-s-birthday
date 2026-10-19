@@ -200,3 +200,29 @@ function confetti(){
      alt="My most silliest picture of Bernice">
      <img src="Snapchat-694527159.jpg"
      alt="the one I love the most">
+<section id="reasons">
+  <h2>little things i love about you ♡</h2>
+
+  <button onclick="showReason('smile')">your smile</button>
+  <button onclick="showReason('beauty')">your beauty</button>
+  <button onclick="showReason('humour')">your humour</button>
+  <button onclick="showReason('heart')">your heart</button>
+  <button onclick="showReason('story')">our story</button>
+
+  <p id="reason-message">tap one, pretty girl ♡</p>
+</section>
+
+<script>
+function showReason(reason) {
+  const messages = {
+    smile: "i love seeing you smile, babyyy. seeing you happy makes me happy too.",
+    beauty: "you're genuinely so beautiful, bernice. i don't think i'll ever get tired of telling you that.",
+    humour: "you're so funny and unserious sometimes, and i love how you can make me happy without even trying.",
+    heart: "thank you for always being there for me, encouraging me and making things feel a little better missyyy.",
+    story: "my childhood crush becoming my first girlfriend still feels incredible. if i could go back, i'd still choose you missy."
+  };
+
+  document.getElementById("reason-message").textContent =
+    messages[reason];
+}
+</script>
