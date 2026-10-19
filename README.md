@@ -225,4 +225,936 @@ function showReason(reason) {
   document.getElementById("reason-message").textContent =
     messages[reason];
 }
+</script><!-- ==========================================
+     BERNICE'S FINAL BIRTHDAY SURPRISE 💗
+=========================================== -->
+
+<style>
+#bernice-final-surprise {
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    padding: 65px 18px;
+    margin: 35px auto;
+    max-width: 750px;
+    color: #fff;
+    background: linear-gradient(145deg, #260c20, #551a39, #24102c);
+    border-radius: 25px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#bernice-final-surprise * {
+    box-sizing: border-box;
+}
+
+#bernice-final-surprise .surprise-label {
+    color: #ffb9d5;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#bernice-final-surprise .surprise-title {
+    font-size: clamp(25px, 6vw, 38px);
+    line-height: 1.3;
+    margin: 15px 0;
+}
+
+#bernice-final-surprise .surprise-intro {
+    color: #f8dce9;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0 auto 30px;
+    max-width: 450px;
+}
+
+#bernice-final-surprise .envelope-button {
+    position: relative;
+    display: block;
+    width: min(280px, 90%);
+    height: 175px;
+    margin: 35px auto 25px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    perspective: 700px;
+    animation: berniceFloat 3s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#bernice-final-surprise .envelope-body {
+    position: absolute;
+    inset: 25px 0 0;
+    background: linear-gradient(135deg, #ffb5cd, #f36e9f);
+    border-radius: 8px;
+    box-shadow: 0 12px 30px #0005;
+    overflow: hidden;
+}
+
+#bernice-final-surprise .envelope-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 49.5%,
+        #e75c91 50%
+    );
+    clip-path: polygon(0 0, 100% 0, 50% 70%);
+}
+
+#bernice-final-surprise .envelope-flap {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #ffcee0;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 0.7s ease;
+    z-index: 3;
+}
+
+#bernice-final-surprise .envelope-heart {
+    position: absolute;
+    z-index: 5;
+    top: 79px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    background: #a70e48;
+    border: 2px solid #ffecf4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    box-shadow: 0 4px 12px #0003;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#bernice-final-surprise .envelope-button:active
+.envelope-heart {
+    transform: translateX(-50%) scale(0.9);
+}
+
+#bernice-final-surprise .envelope-name {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    color: #7c1743;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+#bernice-final-surprise .envelope-button.is-open {
+    animation: none;
+}
+
+#bernice-final-surprise .envelope-button.is-open
+.envelope-flap {
+    transform: rotateX(180deg);
+}
+
+#bernice-final-surprise .envelope-button.is-open
+.envelope-heart {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#bernice-final-surprise .tap-instruction {
+    font-size: 13px;
+    color: #ffd3e5;
+    animation: bernicePulse 2s infinite;
+}
+
+#bernice-final-surprise .love-letter {
+    display: none;
+    text-align: left;
+    max-width: 620px;
+    margin: 35px auto 0;
+    padding: clamp(22px, 5vw, 40px);
+    color: #59233d;
+    background: #fff8fc;
+    border: 1px solid #f7d3e2;
+    border-radius: 5px;
+    box-shadow: 0 12px 40px #0004;
+    line-height: 1.95;
+    font-size: 15px;
+    animation: berniceLetterReveal 0.8s ease both;
+}
+
+#bernice-final-surprise .love-letter.visible {
+    display: block;
+}
+
+#bernice-final-surprise .letter-top {
+    text-align: center;
+    color: #c13e76;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#bernice-final-surprise .letter-heading {
+    text-align: center;
+    font-size: clamp(23px, 5vw, 32px);
+    line-height: 1.4;
+    color: #a32359;
+    margin: 10px 0 25px;
+}
+
+#bernice-final-surprise .letter-paragraph {
+    margin: 0 0 20px;
+    overflow-wrap: anywhere;
+}
+
+#bernice-final-surprise .letter-ending {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #c12c6b;
+    margin-top: 30px;
+}
+
+#bernice-final-surprise .close-letter {
+    display: block;
+    margin: 28px auto 0;
+    padding: 12px 24px;
+    background: #b52c68;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#bernice-final-surprise .close-letter:hover {
+    background: #8e194d;
+}
+
+@keyframes berniceFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes bernicePulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.55;
+    }
+}
+
+@keyframes berniceLetterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #bernice-final-surprise .envelope-button,
+    #bernice-final-surprise .tap-instruction {
+        animation: none;
+    }
+
+    #bernice-final-surprise .love-letter,
+    #bernice-final-surprise .envelope-flap,
+    #bernice-final-surprise .envelope-heart {
+        animation: none;
+        transition-duration: 0.01ms;
+    }
+}
+</style>
+
+<section id="bernice-final-surprise">
+
+    <div class="surprise-label">A little something from my heart</div>
+
+    <h2 class="surprise-title">
+        One Last Surprise For You, My Love 💗
+    </h2>
+
+    <p class="surprise-intro">
+        I've saved something special just for you, Bernice.
+        A little letter filled with words from my heart.
+        Tap the heart to open it, pretty girl. 💌
+    </p>
+
+    <button
+        type="button"
+        class="envelope-button"
+        id="berniceEnvelope"
+        aria-label="Open your birthday love letter"
+        aria-expanded="false"
+        aria-controls="berniceLoveLetter"
+    >
+        <span class="envelope-body">
+            <span class="envelope-name">
+                For Bernice, With Love ♡
+            </span>
+        </span>
+
+        <span class="envelope-flap"></span>
+
+        <span class="envelope-heart" aria-hidden="true">
+            ♥
+        </span>
+    </button>
+
+    <p class="tap-instruction" id="berniceTapText">
+        ♡ Tap the heart to open your letter ♡
+    </p>
+
+    <article
+        class="love-letter"
+        id="berniceLoveLetter"
+        aria-label="Your birthday love letter"
+        aria-hidden="true"
+        inert
+    >
+        <div class="letter-top">
+            Written with love, just for you 💗
+        </div>
+
+        <h3 class="letter-heading">
+            To My Pretty Girl, Bernice 🥹💖
+        </h3>
+
+        <p class="letter-paragraph">
+            Happyyy birthdayyyy to my babyyyy, my pretty girl,
+            my favourite personnn 😁💗. Happy sweet sixteen to you,
+            Bernice Ephraim Imaobonggg. omggg babyyy, you're actually
+            16 nowww, and i genuinely can't explain how happy i am
+            to celebrate you today. sometimes i actually think about
+            how you're literally my first girlfriend AND my childhood
+            crush, and it's crazy to me how the little girl i used
+            to have a crush on is now the girl i get to call mine.
+            like how did i get this lucky honestly 😭❤️. you're
+            genuinely one of the best things that has ever happened
+            to me, and i'm so grateful to have you in my life.
+            you're so beautiful, babyyy, and i genuinely don't think
+            you understand just HOW BEAUTIFUL YOU ARE🫠💗💗💖.
+            like babyyy😔✌🏽, how are you this pretty???? you're
+            actually so gorgeous, and i don't think i'll ever get
+            tired of telling you that because omgoshhhh😭 LOOK AT
+            YOUUU. But it's not even just about your beauty, it's
+            literally everything about you. your personality, your
+            smile, your humour, the way you make me laugh, and how
+            much i enjoy your presence. you're genuinely one of the
+            funniest people i've ever met, and i love how you can
+            make me happy without even trying.
+        </p>
+
+        <p class="letter-paragraph">
+            I could literally spend hours talking to you and still
+            want more time with you because being around you is
+            something i enjoy so much. even the simplest moments
+            with you mean a lot to me, and i hope you know that.
+            thank you for always being there for me, for encouraging
+            me, for listening to me and for being someone who makes
+            things feel a little better when life gets overwhelming.
+            you probably don't even realise how much some of the
+            things you do mean to me, but i appreciate you more than
+            i can explain. i love having you around, and i'm genuinely
+            so happy that i get to experience this kind of love with
+            you. you're my first girlfriend, my first crush, and
+            someone i've grown to love more than i ever thought i
+            could. i love you unconditionally, babyyy, and i hope
+            i can keep showing you just how much you mean to me,
+            not just today but every other day too. i want to see
+            you happy, i want to see you achieve everything you dream
+            of, and i want to be there cheering you on through all
+            the beautiful things life has waiting for you.
+        </p>
+
+        <p class="letter-paragraph">
+            as you turn 16 today, i pray that God blesses you with
+            happiness, peace, good health, success and so many reasons
+            to smile. I pray that this new age brings you beautiful
+            memories, wonderful opportunities and everything your
+            heart desires. you deserve so much love and happiness,
+            and i hope life gives you plenty of both. i hope you
+            never lose that beautiful smile of yours or that funny,
+            amazing personality i adore so much. and whenever you
+            have days when you don't feel your best, i hope you
+            remember that you're loved, appreciated and so much more
+            amazing than you realise.
+        </p>
+
+        <p class="letter-paragraph">
+            honestly, i could keep writing about you because there's
+            just so much i love about you, but i don't even think
+            words could ever fully explain it. you're so special to
+            me, bernice, and having you in my life is something i'll
+            always be grateful for. i still find it crazy that my
+            childhood crush became my girlfriend, and if i had to
+            do it all over again, i'd still choose you. you're my
+            pretty girl, my favourite person and one of the sweetest
+            things that has ever happened to me. i hope your birthday
+            is as beautiful as you are, even though i don't think
+            anything could possibly compete with that face of yours
+            😭❤️. happy birthday once again, my love. i love you
+            sooooo much, more than these words could ever explain,
+            and i hope your 16th year is filled with all the happiness
+            you deserve. keep being you, keep smiling, keep making me
+            laugh and never forget just how beautiful you are, inside
+            and out. i love you endlessly, my babyyyy.
+        </p>
+
+        <div class="letter-ending">
+            Happy sweet sixteen Berniceeee🥹💖💖💗
+            <br><br>
+            I love you endlessly, my babyyyy. ❤️
+        </div>
+
+        <button
+            type="button"
+            class="close-letter"
+            id="berniceCloseLetter"
+        >
+            Fold my letter back up 💌
+        </button>
+    </article>
+
+</section>
+
+<script>
+(function () {
+    const envelope = document.getElementById("berniceEnvelope");
+    const letter = document.getElementById("berniceLoveLetter");
+    const tapText = document.getElementById("berniceTapText");
+    const closeButton = document.getElementById("berniceCloseLetter");
+
+    if (!envelope || !letter || !tapText || !closeButton) {
+        return;
+    }
+
+    function openLetter() {
+        envelope.classList.add("is-open");
+        letter.classList.add("visible");
+
+        letter.removeAttribute("inert");
+        letter.setAttribute("aria-hidden", "false");
+
+        envelope.setAttribute("aria-expanded", "true");
+        tapText.textContent = "♡ A little piece of my heart, just for you ♡";
+
+        window.setTimeout(function () {
+            letter.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 250);
+    }
+
+    function closeLetter() {
+        letter.classList.remove("visible");
+        letter.setAttribute("inert", "");
+        letter.setAttribute("aria-hidden", "true");
+
+        envelope.classList.remove("is-open");
+        envelope.setAttribute("aria-expanded", "false");
+
+        tapText.textContent = "♡ Tap the heart to open your letter ♡";
+
+        envelope.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+
+    envelope.addEventListener("click", function () {
+        if (letter.classList.contains("visible")) {
+            closeLetter();
+        } else {
+            openLetter();
+        }
+    });
+
+    closeButton.addEventListener("click", closeLetter);
+})();
+</script><!-- ==========================================
+     BERNICE'S FINAL BIRTHDAY SURPRISE 💗
+=========================================== -->
+
+<style>
+#bernice-final-surprise {
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    padding: 65px 18px;
+    margin: 35px auto;
+    max-width: 750px;
+    color: #fff;
+    background: linear-gradient(145deg, #260c20, #551a39, #24102c);
+    border-radius: 25px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#bernice-final-surprise * {
+    box-sizing: border-box;
+}
+
+#bernice-final-surprise .surprise-label {
+    color: #ffb9d5;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#bernice-final-surprise .surprise-title {
+    font-size: clamp(25px, 6vw, 38px);
+    line-height: 1.3;
+    margin: 15px 0;
+}
+
+#bernice-final-surprise .surprise-intro {
+    color: #f8dce9;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 0 auto 30px;
+    max-width: 450px;
+}
+
+#bernice-final-surprise .envelope-button {
+    position: relative;
+    display: block;
+    width: min(280px, 90%);
+    height: 175px;
+    margin: 35px auto 25px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    perspective: 700px;
+    animation: berniceFloat 3s ease-in-out infinite;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#bernice-final-surprise .envelope-body {
+    position: absolute;
+    inset: 25px 0 0;
+    background: linear-gradient(135deg, #ffb5cd, #f36e9f);
+    border-radius: 8px;
+    box-shadow: 0 12px 30px #0005;
+    overflow: hidden;
+}
+
+#bernice-final-surprise .envelope-body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 49.5%,
+        #e75c91 50%
+    );
+    clip-path: polygon(0 0, 100% 0, 50% 70%);
+}
+
+#bernice-final-surprise .envelope-flap {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: #ffcee0;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 0.7s ease;
+    z-index: 3;
+}
+
+#bernice-final-surprise .envelope-heart {
+    position: absolute;
+    z-index: 5;
+    top: 79px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    background: #a70e48;
+    border: 2px solid #ffecf4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    box-shadow: 0 4px 12px #0003;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#bernice-final-surprise .envelope-button:active
+.envelope-heart {
+    transform: translateX(-50%) scale(0.9);
+}
+
+#bernice-final-surprise .envelope-name {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    color: #7c1743;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+#bernice-final-surprise .envelope-button.is-open {
+    animation: none;
+}
+
+#bernice-final-surprise .envelope-button.is-open
+.envelope-flap {
+    transform: rotateX(180deg);
+}
+
+#bernice-final-surprise .envelope-button.is-open
+.envelope-heart {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#bernice-final-surprise .tap-instruction {
+    font-size: 13px;
+    color: #ffd3e5;
+    animation: bernicePulse 2s infinite;
+}
+
+#bernice-final-surprise .love-letter {
+    display: none;
+    text-align: left;
+    max-width: 620px;
+    margin: 35px auto 0;
+    padding: clamp(22px, 5vw, 40px);
+    color: #59233d;
+    background: #fff8fc;
+    border: 1px solid #f7d3e2;
+    border-radius: 5px;
+    box-shadow: 0 12px 40px #0004;
+    line-height: 1.95;
+    font-size: 15px;
+    animation: berniceLetterReveal 0.8s ease both;
+}
+
+#bernice-final-surprise .love-letter.visible {
+    display: block;
+}
+
+#bernice-final-surprise .letter-top {
+    text-align: center;
+    color: #c13e76;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#bernice-final-surprise .letter-heading {
+    text-align: center;
+    font-size: clamp(23px, 5vw, 32px);
+    line-height: 1.4;
+    color: #a32359;
+    margin: 10px 0 25px;
+}
+
+#bernice-final-surprise .letter-paragraph {
+    margin: 0 0 20px;
+    overflow-wrap: anywhere;
+}
+
+#bernice-final-surprise .letter-ending {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #c12c6b;
+    margin-top: 30px;
+}
+
+#bernice-final-surprise .close-letter {
+    display: block;
+    margin: 28px auto 0;
+    padding: 12px 24px;
+    background: #b52c68;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#bernice-final-surprise .close-letter:hover {
+    background: #8e194d;
+}
+
+@keyframes berniceFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes bernicePulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.55;
+    }
+}
+
+@keyframes berniceLetterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #bernice-final-surprise .envelope-button,
+    #bernice-final-surprise .tap-instruction {
+        animation: none;
+    }
+
+    #bernice-final-surprise .love-letter,
+    #bernice-final-surprise .envelope-flap,
+    #bernice-final-surprise .envelope-heart {
+        animation: none;
+        transition-duration: 0.01ms;
+    }
+}
+</style>
+
+<section id="bernice-final-surprise">
+
+    <div class="surprise-label">A little something from my heart</div>
+
+    <h2 class="surprise-title">
+        One Last Surprise For You, My Love 💗
+    </h2>
+
+    <p class="surprise-intro">
+        I've saved something special just for you, Bernice.
+        A little letter filled with words from my heart.
+        Tap the heart to open it, pretty girl. 💌
+    </p>
+
+    <button
+        type="button"
+        class="envelope-button"
+        id="berniceEnvelope"
+        aria-label="Open your birthday love letter"
+        aria-expanded="false"
+        aria-controls="berniceLoveLetter"
+    >
+        <span class="envelope-body">
+            <span class="envelope-name">
+                For Bernice, With Love ♡
+            </span>
+        </span>
+
+        <span class="envelope-flap"></span>
+
+        <span class="envelope-heart" aria-hidden="true">
+            ♥
+        </span>
+    </button>
+
+    <p class="tap-instruction" id="berniceTapText">
+        ♡ Tap the heart to open your letter ♡
+    </p>
+
+    <article
+        class="love-letter"
+        id="berniceLoveLetter"
+        aria-label="Your birthday love letter"
+        aria-hidden="true"
+        inert
+    >
+        <div class="letter-top">
+            Written with love, just for you 💗
+        </div>
+
+        <h3 class="letter-heading">
+            To My Pretty Girl, Bernice 🥹💖
+        </h3>
+
+        <p class="letter-paragraph">
+            Happyyy birthdayyyy to my babyyyy, my pretty girl,
+            my favourite personnn 😁💗. Happy sweet sixteen to you,
+            Bernice Ephraim Imaobonggg. omggg babyyy, you're actually
+            16 nowww, and i genuinely can't explain how happy i am
+            to celebrate you today. sometimes i actually think about
+            how you're literally my first girlfriend AND my childhood
+            crush, and it's crazy to me how the little girl i used
+            to have a crush on is now the girl i get to call mine.
+            like how did i get this lucky honestly 😭❤️. you're
+            genuinely one of the best things that has ever happened
+            to me, and i'm so grateful to have you in my life.
+            you're so beautiful, babyyy, and i genuinely don't think
+            you understand just HOW BEAUTIFUL YOU ARE🫠💗💗💖.
+            like babyyy😔✌🏽, how are you this pretty???? you're
+            actually so gorgeous, and i don't think i'll ever get
+            tired of telling you that because omgoshhhh😭 LOOK AT
+            YOUUU. But it's not even just about your beauty, it's
+            literally everything about you. your personality, your
+            smile, your humour, the way you make me laugh, and how
+            much i enjoy your presence. you're genuinely one of the
+            funniest people i've ever met, and i love how you can
+            make me happy without even trying.
+        </p>
+
+        <p class="letter-paragraph">
+            I could literally spend hours talking to you and still
+            want more time with you because being around you is
+            something i enjoy so much. even the simplest moments
+            with you mean a lot to me, and i hope you know that.
+            thank you for always being there for me, for encouraging
+            me, for listening to me and for being someone who makes
+            things feel a little better when life gets overwhelming.
+            you probably don't even realise how much some of the
+            things you do mean to me, but i appreciate you more than
+            i can explain. i love having you around, and i'm genuinely
+            so happy that i get to experience this kind of love with
+            you. you're my first girlfriend, my first crush, and
+            someone i've grown to love more than i ever thought i
+            could. i love you unconditionally, babyyy, and i hope
+            i can keep showing you just how much you mean to me,
+            not just today but every other day too. i want to see
+            you happy, i want to see you achieve everything you dream
+            of, and i want to be there cheering you on through all
+            the beautiful things life has waiting for you.
+        </p>
+
+        <p class="letter-paragraph">
+            as you turn 16 today, i pray that God blesses you with
+            happiness, peace, good health, success and so many reasons
+            to smile. I pray that this new age brings you beautiful
+            memories, wonderful opportunities and everything your
+            heart desires. you deserve so much love and happiness,
+            and i hope life gives you plenty of both. i hope you
+            never lose that beautiful smile of yours or that funny,
+            amazing personality i adore so much. and whenever you
+            have days when you don't feel your best, i hope you
+            remember that you're loved, appreciated and so much more
+            amazing than you realise.
+        </p>
+
+        <p class="letter-paragraph">
+            honestly, i could keep writing about you because there's
+            just so much i love about you, but i don't even think
+            words could ever fully explain it. you're so special to
+            me, bernice, and having you in my life is something i'll
+            always be grateful for. i still find it crazy that my
+            childhood crush became my girlfriend, and if i had to
+            do it all over again, i'd still choose you. you're my
+            pretty girl, my favourite person and one of the sweetest
+            things that has ever happened to me. i hope your birthday
+            is as beautiful as you are, even though i don't think
+            anything could possibly compete with that face of yours
+            😭❤️. happy birthday once again, my love. i love you
+            sooooo much, more than these words could ever explain,
+            and i hope your 16th year is filled with all the happiness
+            you deserve. keep being you, keep smiling, keep making me
+            laugh and never forget just how beautiful you are, inside
+            and out. i love you endlessly, my babyyyy.
+        </p>
+
+        <div class="letter-ending">
+            Happy sweet sixteen Berniceeee🥹💖💖💗
+            <br><br>
+            I love you endlessly, my babyyyy. ❤️
+        </div>
+
+        <button
+            type="button"
+            class="close-letter"
+            id="berniceCloseLetter"
+        >
+            Fold my letter back up 💌
+        </button>
+    </article>
+
+</section>
+
+<script>
+(function () {
+    const envelope = document.getElementById("berniceEnvelope");
+    const letter = document.getElementById("berniceLoveLetter");
+    const tapText = document.getElementById("berniceTapText");
+    const closeButton = document.getElementById("berniceCloseLetter");
+
+    if (!envelope || !letter || !tapText || !closeButton) {
+        return;
+    }
+
+    function openLetter() {
+        envelope.classList.add("is-open");
+        letter.classList.add("visible");
+
+        letter.removeAttribute("inert");
+        letter.setAttribute("aria-hidden", "false");
+
+        envelope.setAttribute("aria-expanded", "true");
+        tapText.textContent = "♡ A little piece of my heart, just for you ♡";
+
+        window.setTimeout(function () {
+            letter.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 250);
+    }
+
+    function closeLetter() {
+        letter.classList.remove("visible");
+        letter.setAttribute("inert", "");
+        letter.setAttribute("aria-hidden", "true");
+
+        envelope.classList.remove("is-open");
+        envelope.setAttribute("aria-expanded", "false");
+
+        tapText.textContent = "♡ Tap the heart to open your letter ♡";
+
+        envelope.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+
+    envelope.addEventListener("click", function () {
+        if (letter.classList.contains("visible")) {
+            closeLetter();
+        } else {
+            openLetter();
+        }
+    });
+
+    closeButton.addEventListener("click", closeLetter);
+})();
 </script>
